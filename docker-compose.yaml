@@ -6,7 +6,8 @@ services:
     environment:
       MONGO_INITDB_DATABASE: open5gs
     networks:
-      - default
+      default:
+        ipv4_address: ${MONGO_IP}
 
   amf:
     image: gradiant/open5gs:2.7.1
@@ -15,7 +16,7 @@ services:
     restart: on-failure
     networks:
       default:
-        ipv4_address: 172.22.0.10
+        ipv4_address: ${AMF_IP}
 
   ausf:
     image: gradiant/open5gs:2.7.1
@@ -23,7 +24,8 @@ services:
       - open5gs-ausfd
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${AUSF_IP}
 
   bsf:
     image: gradiant/open5gs:2.7.1
@@ -31,21 +33,24 @@ services:
       - open5gs-bsfd
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${BSF_IP}
 
   nrf:
     image: gradiant/open5gs:2.7.1
     command: open5gs-nrfd
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${NRF_IP}
 
   nssf:
     image: gradiant/open5gs:2.7.1
     command: open5gs-nssfd
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${NSSF_IP}
 
   pcf:
     image: gradiant/open5gs:2.7.1
@@ -55,7 +60,8 @@ services:
       DB_URI: mongodb://mongo/open5gs
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${PCF_IP}
 
   scp:
     image: gradiant/open5gs:2.7.1
@@ -64,7 +70,8 @@ services:
       DB_URI: mongodb://mongo/open5gs
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: ${SCP_IP}
 
   smf:
     image: gradiant/open5gs:2.7.1
@@ -74,7 +81,8 @@ services:
     restart: on-failure
     command: open5gs-smfd
     networks:
-      - default
+      default:
+        ipv4_address: ${SMF_IP}
 
   udm:
     image: gradiant/open5gs:2.7.1
@@ -82,7 +90,8 @@ services:
     command:
       - open5gs-udmd
     networks:
-      - default
+      default:
+        ipv4_address: ${UDM_IP}
 
   udr:
     image: gradiant/open5gs:2.7.1
@@ -92,7 +101,8 @@ services:
     command:
       - open5gs-udrd
     networks:
-      - default
+      default:
+        ipv4_address: ${UDR_IP}
 
   upf:
     image: gradiant/open5gs:2.7.1
@@ -107,7 +117,8 @@ services:
     ports:
       - 2152:2152
     networks:
-      - default
+      default:
+        ipv4_address: ${UPF_IP}
 
   webui:
     image: gradiant/open5gs-webui:2.7.1
@@ -118,11 +129,12 @@ services:
     ports:
       - 9999:9999
     networks:
-      - default
+      default:
+        ipv4_address: ${WEBUI_IP}
 
 networks:
   default:
     name: docker_open5gs_default
     ipam:
       config:
-        - subnet: 172.22.0.0/24
+        - subnet: ${TEST_NETWORK}
