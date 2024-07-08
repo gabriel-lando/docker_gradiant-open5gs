@@ -122,3 +122,6 @@ services:
 networks:
   default:
     name: docker_open5gs_default
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
