@@ -11,15 +11,22 @@ services:
 
   amf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-amfd
     restart: on-failure
+    expose:
+      - "38412/sctp"
+      - "7777/tcp"
     networks:
       default:
         ipv4_address: ${AMF_IP}
 
   ausf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-ausfd
     restart: on-failure
@@ -29,6 +36,8 @@ services:
 
   bsf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-bsfd
     restart: on-failure
@@ -38,6 +47,8 @@ services:
 
   nrf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command: open5gs-nrfd
     restart: on-failure
     networks:
@@ -46,6 +57,8 @@ services:
 
   nssf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command: open5gs-nssfd
     restart: on-failure
     networks:
@@ -54,6 +67,8 @@ services:
 
   pcf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-pcfd
     environment:
@@ -65,6 +80,8 @@ services:
 
   scp:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command: open5gs-scpd
     environment:
       DB_URI: mongodb://mongo/open5gs
@@ -77,7 +94,7 @@ services:
     image: gradiant/open5gs:2.7.1
     #It is necessary to mount the configuration file if pcfr is not deployed
     volumes:
-      - ./config/smf.yaml:/opt/open5gs/etc/open5gs/smf.yaml
+      - ./configs:/opt/open5gs/etc/open5gs
     restart: on-failure
     command: open5gs-smfd
     networks:
@@ -87,6 +104,8 @@ services:
   udm:
     image: gradiant/open5gs:2.7.1
     restart: on-failure
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-udmd
     networks:
@@ -96,6 +115,8 @@ services:
   udr:
     image: gradiant/open5gs:2.7.1
     restart: on-failure
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     environment:
       DB_URI: mongodb://mongo/open5gs
     command:
@@ -106,6 +127,8 @@ services:
 
   upf:
     image: gradiant/open5gs:2.7.1
+    volumes:
+      - ./configs:/opt/open5gs/etc/open5gs
     command:
       - open5gs-upfd
     cap_add:

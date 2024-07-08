@@ -83,8 +83,8 @@ smf:
 #            - internet
 #      tai:
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac: 1
 #
 #  o If any of conditions below are met:
@@ -98,8 +98,8 @@ smf:
 #            - internet
 #      tai:
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac:
 #            - 1-9
 #    - s_nssai:
@@ -114,8 +114,8 @@ smf:
 #            - internet
 #      tai:
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac:
 #            - 10-20
 #            - 30-40
@@ -144,28 +144,28 @@ smf:
 #            - internet
 #      tai:
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac: [1, 2, 3]
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac: 4
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac:
 #            - 5
 #            - 6
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac:
 #            - 100-200
 #            - 300-400
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac:
 #            - 500-600
 #            - 700-800
@@ -176,8 +176,8 @@ smf:
 #            - internet
 #      tai:
 #        - plmn_id:
-#            mcc: 999
-#            mnc: 70
+#            mcc: 208
+#            mnc: 95
 #          tac: 99
 #
 ################################################################################
