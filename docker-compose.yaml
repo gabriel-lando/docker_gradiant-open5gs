@@ -14,7 +14,8 @@ services:
       - open5gs-amfd
     restart: on-failure
     networks:
-      - default
+      default:
+        ipv4_address: 172.22.0.10
 
   ausf:
     image: gradiant/open5gs:2.7.1
